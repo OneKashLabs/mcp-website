@@ -47,12 +47,10 @@ const TOOLS: Tool[] = [
 type Tile = {title: string; body: string};
 
 const TILES: Tile[] = [
-  {title: 'Works on any computer', body: 'Windows, macOS, or Linux with Java 21. You don’t need a Mac.'},
-  {title: 'Remembers events between chats', body: 'Edit an event in a later chat without looking it up again.'},
-  {title: 'Repeating events', body: 'Change one occurrence, this and later, or the whole series.'},
-  {title: 'Won’t overwrite newer edits', body: 'If someone changed the event since, it stops and tells you.'},
-  {title: 'No silent cut-offs', body: 'Ask for too much at once and you get an error, not half a list.'},
-  {title: 'Install it your way', body: 'From npm, PyPI, or the MCP Registry, or as a JAR.'},
+  {title: 'No Mac needed', body: 'Runs on Windows, macOS, or Linux with Java 21.'},
+  {title: 'Handles repeating events', body: 'Change one date, that date and the rest, or the whole series.'},
+  {title: 'Won’t overwrite newer edits', body: 'If the event changed after your AI read it, the edit stops and says so.'},
+  {title: 'No silent cut-offs', body: 'Ask for too much at once and it says so, instead of showing part of the list.'},
 ];
 
 function Hero(): ReactNode {
