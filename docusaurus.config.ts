@@ -1,11 +1,15 @@
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import {themes} from 'prism-react-renderer';
 
 const DESCRIPTION =
   'An MCP server that lets AI assistants read and change your iCloud Calendar over CalDAV. Runs on your computer, talks only to iCloud. Free and open source.';
 const REPO = 'https://github.com/icloud-calendar-mcp/icloud-calendar-mcp';
 // The one organization every OneKash Labs site points to, defined on onekash.org.
 const ORG = {'@type': 'Organization', '@id': 'https://onekash.org/#org', name: 'OneKash Labs', url: 'https://onekash.org'};
+
+// Code blocks on the hero's slate, so commands read as part of the logo's palette.
+const codeTheme = {...themes.palenight, plain: {...themes.palenight.plain, backgroundColor: '#0f2a2e'}};
 
 const config: Config = {
   title: 'iCloud Calendar MCP',
@@ -82,7 +86,7 @@ const config: Config = {
       {name: 'twitter:image:alt', content: 'iCloud Calendar MCP: ask AI to plan your week. The install command and the calendar logo.'},
     ],
     colorMode: {respectPrefersColorScheme: true},
-    prism: {additionalLanguages: ['bash', 'json']},
+    prism: {theme: codeTheme, darkTheme: codeTheme, additionalLanguages: ['bash', 'json']},
     navbar: {
       title: 'iCloud Calendar MCP',
       logo: {alt: 'iCloud Calendar MCP logo', src: 'img/icon-rounded.png'},

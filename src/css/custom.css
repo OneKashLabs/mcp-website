@@ -43,14 +43,14 @@
   --ifm-color-primary-lighter: #a7e296;
   --ifm-color-primary-lightest: #c0ebb3;
 
-  --mc-mist: #101c1d;
-  --mc-paper: #0b1415;
+  --mc-mist: #11272a;
+  --mc-paper: #0b1718;
   --mc-ink: #e9f1ef;
   --mc-soft: #b1bebb;
   --mc-line: rgba(255, 255, 255, 0.1);
 
-  --ifm-background-surface-color: #121e1f;
-  --ifm-navbar-background-color: rgba(11, 20, 21, 0.85);
+  --ifm-background-surface-color: #11272a;
+  --ifm-navbar-background-color: rgba(11, 23, 24, 0.85);
 }
 
 html { scroll-behavior: smooth; }
@@ -119,8 +119,15 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.08; }
 .mc-hero__term { position: relative; z-index: 1; border-radius: 16px; background: #081a1d; border: 1px solid #2b4c50; padding: 0.9rem 1rem 1rem; box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.6); min-width: 0; }
 .mc-term__bar { display: flex; gap: 6px; margin: 0 0 0.8rem 0.2rem; }
 .mc-term__bar i { width: 11px; height: 11px; border-radius: 50%; background: #2b4c50; }
-.mc-hero__term .theme-code-block { margin: 0; box-shadow: none; --prism-background-color: #0f2a2e; }
-.mc-term__or { margin: 0.55rem 0; text-align: center; font-size: 0.85rem; color: rgba(230, 239, 237, 0.7); }
+/* The commands sit in the window itself, as in a real terminal. */
+.mc-hero__term .theme-code-block { margin: 0; box-shadow: none; --prism-background-color: transparent !important; }
+.mc-hero__term .theme-code-block pre { background: transparent !important; padding-left: 0.4rem; }
+/* A prompt drawn by CSS, so the copy button copies only the command. */
+.mc-hero__term pre .token-line::before { content: '$ '; color: var(--mc-green); }
+.mc-term__or { margin: -0.4rem 0; text-align: center; font-size: 0.85rem; color: rgba(230, 239, 237, 0.7); }
+
+/* In dark mode the page shares the hero's family, so a hairline marks where the hero ends. */
+[data-theme='dark'] .mc-hero { border-bottom: 1px solid var(--mc-line); }
 
 /* Safety statement */
 .mc-safety { padding: 2.75rem 0; border-bottom: 1px solid var(--mc-line); }
@@ -200,6 +207,9 @@ a:focus-visible, button:focus-visible, .navbar__link:focus-visible, .footer__lin
   .mc-section { padding: 3.5rem 0; }
   .mc-hero__title { font-size: clamp(2rem, 10vw, 2.5rem); }
   .mc-hero__art { padding-top: 76px; }
+  /* The whole npx command fits on one line down to 320px. */
+  .mc-hero__term { padding: 0.8rem 0.6rem 0.8rem; }
+  .mc-hero__term pre { font-size: 0.78rem; padding: 0.75rem 0.5rem; }
   .mc-hero__kash { width: 128px; right: 20px; }
   .mc-hero__paws { width: 112px; top: 63px; right: 28px; }
   .mc-steps > li { padding-left: 0; padding-top: 3rem; }
@@ -226,3 +236,6 @@ a:focus-visible, button:focus-visible, .navbar__link:focus-visible, .footer__lin
 .more-apps__item strong + span { display: block; font-size: 0.9rem; line-height: 1.35; color: var(--ma-soft); }
 @media (max-width: 996px) { .more-apps__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .more-apps__list { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 340px) {
+  .mc-hero__term pre { font-size: 0.7rem; padding: 0.7rem 0.4rem; }
+}
