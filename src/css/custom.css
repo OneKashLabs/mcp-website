@@ -146,7 +146,7 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.08; }
 .mc-table { display: table; width: 100%; margin: 0; border-collapse: collapse; }
 .mc-table th, .mc-table td { border: 0; border-bottom: 1px solid var(--mc-line); padding: 0.75rem 1rem 0.75rem 0; text-align: left; vertical-align: top; background: none; }
 .mc-table thead tr, .mc-table tr:nth-child(2n) { background: none; border: 0; }
-.mc-table th { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--mc-soft); }
+.mc-table th { font-size: 0.92rem; color: var(--mc-soft); }
 .mc-table td:last-child { white-space: nowrap; font-weight: 600; }
 
 /* Features and help: a plain two-column list, each item under a hairline. */
